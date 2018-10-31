@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dotloop.sweepy.SwipeLayout
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_cell_height"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorActionDelete"
+    >
+
+    <LinearLayout
+        android:id="@+id/swipe_left_action"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/archive"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@color/colorActionArchive"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Archive"
+            android:textColor="@android:color/white"
+            />
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorActionDelete"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Delete"
+            android:textColor="@android:color/white"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/swipe_right_action"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/phone"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorActionPhone"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@drawable/ic_local_phone"
+            />
+
+        <ImageView
+            android:id="@+id/email"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorActionMail"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@drawable/ic_email"
+            />
+
+        <ImageView
+            android:id="@+id/txtmessage"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorActionTxtMessage"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@drawable/ic_textsms"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cell"
+        />
+
+</com.dotloop.sweepy.SwipeLayout>
