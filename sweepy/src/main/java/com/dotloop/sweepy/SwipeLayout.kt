@@ -38,7 +38,13 @@ class SwipeLayout @JvmOverloads constructor(
 
         //Restrict the motion of the dragged child view along the horizontal axis.
         //The default implementation does not allow horizontal motion
-        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = left
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
+            return when (currentDragEdge) {
+                DragEdge.RIGHT_EDGE -> Math.max(left, -(currentActionView?.width ?: left))
+                else                -> Math.min(left, currentActionView?.width ?: left)
+
+            }
+        }
 
         //Called when the user's input indicates that they want to capture the given child view with
         //the pointer indicated by pointerId. The callback should return true if the user is
