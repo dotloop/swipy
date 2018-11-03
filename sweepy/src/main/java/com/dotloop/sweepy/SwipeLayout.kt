@@ -454,6 +454,10 @@ class SwipeLayout @JvmOverloads constructor(
     }
 
     private fun layoutLayDown() {
+        actionViews.forEach {
+            it?.visibility = if (it != currentActionView) View.INVISIBLE else View.VISIBLE
+        }
+
         val surfaceRect: Rect = viewBoundCache[surfaceView] ?: computeSurfaceLayoutArea(false)
         surfaceView?.run {
             layout(surfaceRect.left, surfaceRect.top, surfaceRect.right, surfaceRect.bottom)
