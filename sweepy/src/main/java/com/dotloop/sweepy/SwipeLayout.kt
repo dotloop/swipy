@@ -73,15 +73,13 @@ class SwipeLayout @JvmOverloads constructor(
                 currentActionView?.layout(rect.left, rect.top, rect.right, rect.bottom)
 
                 var newLeft = surfaceView.left + dx
-                val newTop = surfaceView.top + dy
 
                 if (currentDragEdge == LEFT_EDGE && newLeft < paddingLeft)
                     newLeft = paddingLeft
                 else if (currentDragEdge == RIGHT_EDGE && newLeft > paddingLeft)
                     newLeft = paddingLeft
 
-                surfaceView.layout(newLeft, newTop,
-                                   newLeft + measuredWidth, newTop + measuredHeight)
+                surfaceView.layout(newLeft, surfaceView.top, newLeft + measuredWidth, surfaceView.top + measuredHeight)
             }
 
             dispatchSwipeEvent()
