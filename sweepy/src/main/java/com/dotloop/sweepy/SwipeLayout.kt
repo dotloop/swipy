@@ -137,7 +137,7 @@ class SwipeLayout @JvmOverloads constructor(
         }
     private var gestureDetector = GestureDetector(getContext(), SwipeDetector())
     private var swipeEnabled = true
-    private var swipesEnabled = booleanArrayOf(true, true, true, true)
+    private var swipesEnabled = booleanArrayOf(true, true)
     private var isBeingDragged: Boolean = false
 
     var onSwipeListeners: OnSwipeListener? = null
