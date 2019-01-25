@@ -23,8 +23,9 @@
             android:layout_weight="0.5"
             android:background="@color/colorActionArchive"
             android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="Archive"
+            android:text="@string/archive_action"
             android:textColor="@android:color/white"
             />
 
@@ -32,10 +33,10 @@
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@color/colorActionDelete"
             android:layout_weight="0.5"
+            android:background="@color/colorActionDelete"
             android:gravity="center"
-            android:text="Delete"
+            android:text="@string/delete_action"
             android:textColor="@android:color/white"
             />
     </LinearLayout>
