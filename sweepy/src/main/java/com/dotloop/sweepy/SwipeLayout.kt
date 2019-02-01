@@ -147,15 +147,13 @@ class SwipeLayout @JvmOverloads constructor(
     /**
      * Offset between the current position and the edge of the view
      */
-    private var currentOffset: Float = 0f
-        get() {
-            return edgeSwipesOffset[currentDragEdge.ordinal]
-        }
+    private val currentOffset: Float
+        get() = edgeSwipesOffset[currentDragEdge.ordinal]
 
     /**
      * null if there is no action view
      */
-    private var currentActionView: View? = null
+    private val currentActionView: View?
         get() {
             val actionViews = actionViews
             return when {
@@ -167,7 +165,7 @@ class SwipeLayout @JvmOverloads constructor(
     /**
      * All actionViews: left, right (may be null if the edge is not set)
      */
-    private var actionViews: Array<View?> = emptyArray()
+    private val actionViews: Array<View?>
         get() {
             val actionViews = arrayOfNulls<View>(DragEdge.values().size)
             for (dragEdge in DragEdge.values()) {
@@ -179,7 +177,7 @@ class SwipeLayout @JvmOverloads constructor(
     /**
      * Null if there is no surface view(no children)
      */
-    private var surfaceView: View? = null
+    private val surfaceView: View?
         get() {
             return if (childCount == 0) null else getChildAt(childCount - 1)
         }
@@ -201,7 +199,7 @@ class SwipeLayout @JvmOverloads constructor(
      * @return [Status] OPEN , CLOSE or
      * MIDDLE.
      */
-    private var openStatus: Status? = null
+    private val openStatus: Status?
         get() {
             val surfaceView = surfaceView ?: return CLOSE
             val surfaceLeft = surfaceView.left
@@ -256,13 +254,13 @@ class SwipeLayout @JvmOverloads constructor(
         return super.onTouchEvent(event) || isBeingDragged || action == MotionEvent.ACTION_DOWN
     }
 
-    private var isLeftSwipeEnabled: Boolean = false
+    private val isLeftSwipeEnabled: Boolean
         get() {
             val bottomView = dragEdges[LEFT_EDGE]
             return bottomView != null && bottomView.parent == this && bottomView !== surfaceView && swipesEnabled[LEFT_EDGE.ordinal]
         }
 
-    private var isRightSwipeEnabled: Boolean = false
+    private val isRightSwipeEnabled: Boolean
         get() {
             val bottomView = dragEdges[RIGHT_EDGE]
             return (bottomView != null && bottomView.parent == this
