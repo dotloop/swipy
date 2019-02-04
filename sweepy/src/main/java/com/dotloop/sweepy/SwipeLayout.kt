@@ -38,7 +38,13 @@ class SwipeLayout @JvmOverloads constructor(
 
         //Restrict the motion of the dragged child view along the horizontal axis.
         //The default implementation does not allow horizontal motion
-        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = left
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
+            return when (currentDragEdge) {
+                DragEdge.RIGHT_EDGE -> Math.max(left, -(currentActionView?.width ?: left))
+                else                -> Math.min(left, currentActionView?.width ?: left)
+
+            }
+        }
 
         //Called when the user's input indicates that they want to capture the given child view with
         //the pointer indicated by pointerId. The callback should return true if the user is
@@ -67,15 +73,13 @@ class SwipeLayout @JvmOverloads constructor(
                 currentActionView?.layout(rect.left, rect.top, rect.right, rect.bottom)
 
                 var newLeft = surfaceView.left + dx
-                val newTop = surfaceView.top + dy
 
                 if (currentDragEdge == LEFT_EDGE && newLeft < paddingLeft)
                     newLeft = paddingLeft
                 else if (currentDragEdge == RIGHT_EDGE && newLeft > paddingLeft)
                     newLeft = paddingLeft
 
-                surfaceView.layout(newLeft, newTop,
-                                   newLeft + measuredWidth, newTop + measuredHeight)
+                surfaceView.layout(newLeft, surfaceView.top, newLeft + measuredWidth, surfaceView.top + measuredHeight)
             }
 
             dispatchSwipeEvent()
@@ -131,7 +135,7 @@ class SwipeLayout @JvmOverloads constructor(
         }
     private var gestureDetector = GestureDetector(getContext(), SwipeDetector())
     private var swipeEnabled = true
-    private var swipesEnabled = booleanArrayOf(true, true, true, true)
+    private var swipesEnabled = booleanArrayOf(true, true)
     private var isBeingDragged: Boolean = false
 
     var onSwipeListeners: OnSwipeListener? = null
@@ -143,15 +147,13 @@ class SwipeLayout @JvmOverloads constructor(
     /**
      * Offset between the current position and the edge of the view
      */
-    private var currentOffset: Float = 0f
-        get() {
-            return edgeSwipesOffset[currentDragEdge.ordinal]
-        }
+    private val currentOffset: Float
+        get() = edgeSwipesOffset[currentDragEdge.ordinal]
 
     /**
      * null if there is no action view
      */
-    private var currentActionView: View? = null
+    private val currentActionView: View?
         get() {
             val actionViews = actionViews
             return when {
@@ -163,7 +165,7 @@ class SwipeLayout @JvmOverloads constructor(
     /**
      * All actionViews: left, right (may be null if the edge is not set)
      */
-    private var actionViews: Array<View?> = emptyArray()
+    private val actionViews: Array<View?>
         get() {
             val actionViews = arrayOfNulls<View>(DragEdge.values().size)
             for (dragEdge in DragEdge.values()) {
@@ -175,7 +177,7 @@ class SwipeLayout @JvmOverloads constructor(
     /**
      * Null if there is no surface view(no children)
      */
-    private var surfaceView: View? = null
+    private val surfaceView: View?
         get() {
             return if (childCount == 0) null else getChildAt(childCount - 1)
         }
@@ -197,7 +199,7 @@ class SwipeLayout @JvmOverloads constructor(
      * @return [Status] OPEN , CLOSE or
      * MIDDLE.
      */
-    private var openStatus: Status? = null
+    private val openStatus: Status?
         get() {
             val surfaceView = surfaceView ?: return CLOSE
             val surfaceLeft = surfaceView.left
@@ -252,13 +254,13 @@ class SwipeLayout @JvmOverloads constructor(
         return super.onTouchEvent(event) || isBeingDragged || action == MotionEvent.ACTION_DOWN
     }
 
-    private var isLeftSwipeEnabled: Boolean = false
+    private val isLeftSwipeEnabled: Boolean
         get() {
             val bottomView = dragEdges[LEFT_EDGE]
             return bottomView != null && bottomView.parent == this && bottomView !== surfaceView && swipesEnabled[LEFT_EDGE.ordinal]
         }
 
-    private var isRightSwipeEnabled: Boolean = false
+    private val isRightSwipeEnabled: Boolean
         get() {
             val bottomView = dragEdges[RIGHT_EDGE]
             return (bottomView != null && bottomView.parent == this
@@ -448,6 +450,10 @@ class SwipeLayout @JvmOverloads constructor(
     }
 
     private fun layoutLayDown() {
+        actionViews.forEach {
+            it?.visibility = if (it != currentActionView) View.INVISIBLE else View.VISIBLE
+        }
+
         val surfaceRect: Rect = viewBoundCache[surfaceView] ?: computeSurfaceLayoutArea(false)
         surfaceView?.run {
             layout(surfaceRect.left, surfaceRect.top, surfaceRect.right, surfaceRect.bottom)
