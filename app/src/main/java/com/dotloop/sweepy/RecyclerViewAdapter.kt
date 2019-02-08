@@ -1,10 +1,12 @@
-package com.dotloop.sweepy
+package com.dotloop.sweepy.app
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.dotloop.sweepy.SwipableCellHandler
+import com.dotloop.sweepy.SwipeLayout
 
 class RecyclerViewAdapter(
     private val dataSet: List<String>,
@@ -20,7 +22,6 @@ class RecyclerViewAdapter(
         internal val phoneActionView: View = itemView.findViewById(R.id.phone)
         internal val emailActionView: View = itemView.findViewById(R.id.email)
         internal val txtmessageActionView: View = itemView.findViewById(R.id.txtmessage)
-
 
         init {
             swipeLayout.addDrag(SwipeLayout.DragEdge.LEFT_EDGE, swipeLayout.findViewById(R.id.swipe_left_action))
@@ -41,7 +42,7 @@ class RecyclerViewAdapter(
         viewHolder.deleteActionView.setOnClickListener { listener.onDeleteClicked() }
         viewHolder.emailActionView.setOnClickListener { listener.onEmailClicked() }
         viewHolder.phoneActionView.setOnClickListener { listener.onPhoneClicked() }
-        viewHolder.txtmessageActionView.setOnClickListener { listener.onTxtmessageClicked() }
+        viewHolder.txtmessageActionView.setOnClickListener { listener.onTxtMessageClicked() }
 
     }
 

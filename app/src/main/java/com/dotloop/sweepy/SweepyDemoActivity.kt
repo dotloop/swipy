@@ -1,8 +1,7 @@
-package com.dotloop.sweepy
+package com.dotloop.sweepy.app
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_sweepy_demo.*
@@ -39,7 +38,7 @@ class SweepyDemoActivity : AppCompatActivity(), ActionListener {
         showClickFeedback("Phone clicked")
     }
 
-    override fun onTxtmessageClicked() {
+    override fun onTxtMessageClicked() {
         showClickFeedback("Txt Message clicked")
     }
 
