@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name="com.dotloop.sweepy.SweepyDemoActivity">
+        <activity android:name="com.dotloop.sweepy.app.SweepyDemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
