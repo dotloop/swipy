@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3BA2E5</color>
-    <color name="colorPrimaryDark">#2B76A7</color>
-    <color name="colorAccent">#FDEB6C</color>
+    <color name="colorPrimary">#e27984</color>
+    <color name="colorPrimaryDark">#b15c68</color>
+    <color name="colorAccent">#79e2d7</color>
 
     <!-- secondary colors -->
-    <color name="colorActionMail">#EA7317</color>
-    <color name="colorActionDelete">#D84A05</color>
-    <color name="colorActionPhone">#AA1155</color>
-    <color name="colorActionTxtMessage">#09BC8A</color>
-    <color name="colorActionArchive">#26547C</color>
-
+    <color name="colorActionMail">#79b9e2</color>
+    <color name="colorActionDelete">#b15c68</color>
+    <color name="colorActionPhone">#79e2a3</color>
+    <color name="colorActionTxtMessage">#e27984</color>
+    <color name="colorActionArchive">#5c93b1</color>
 </resources>
