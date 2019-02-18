@@ -1,6 +1,8 @@
-{Logo}
+<img src="sweepy_logo.png" alt="drawing" height="50"/> 
 
-Sweepy is a simple and customizable solution to create  "swipable" views 
+**Sweepy is a simple and customizable solution to create  "swipable" views**
+
+<img src="sweepy_gif.gif" alt="drawing" height="500"/>
 
 ##Binaries
 Coming soon
