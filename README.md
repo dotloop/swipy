@@ -35,7 +35,7 @@ swipeLayout.addDrag(RIGHT_EDGE, swipeLayout.findViewById(R.id.swipe_right_action
             android:id="@+id/action1"
             android:layout_width="70dp"
             android:layout_height="50dp"
-            android:text="Action 1	"
+            android:text="Action 1"
             />
     </LinearLayout>
     <LinearLayout
