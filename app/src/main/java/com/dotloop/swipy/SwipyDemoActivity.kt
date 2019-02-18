@@ -1,17 +1,17 @@
-package com.dotloop.sweepy.app
+package com.dotloop.swipy.app
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_sweepy_demo.*
+import kotlinx.android.synthetic.main.activity_swipy_demo.*
 import java.util.*
 
-class SweepyDemoActivity : AppCompatActivity(), ActionListener {
+class SwipyDemoActivity : AppCompatActivity(), ActionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sweepy_demo)
+        setContentView(R.layout.activity_swipy_demo)
 
         // Layout Managers:
         recycler_view.layoutManager = LinearLayoutManager(this)

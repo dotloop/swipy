@@ -1,6 +1,6 @@
-package com.dotloop.sweepy
+package com.dotloop.swipy
 
-import com.dotloop.sweepy.SwipableCellHandler.Mode.Single
+import com.dotloop.swipy.SwipableCellHandler.Mode.Single
 import java.util.*
 
 class SwipableCellHandler {

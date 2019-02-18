@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.dotloop.sweepy.SwipeLayout
+<com.dotloop.swipy.SwipeLayout
     android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_cell_height"
@@ -92,4 +92,4 @@
         tools:text="Cell"
         />
 
-</com.dotloop.sweepy.SwipeLayout>
+</com.dotloop.swipy.SwipeLayout>

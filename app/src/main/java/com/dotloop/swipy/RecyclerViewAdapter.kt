@@ -1,12 +1,12 @@
-package com.dotloop.sweepy.app
+package com.dotloop.swipy.app
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.dotloop.sweepy.SwipableCellHandler
-import com.dotloop.sweepy.SwipeLayout
+import com.dotloop.swipy.SwipableCellHandler
+import com.dotloop.swipy.SwipeLayout
 
 class RecyclerViewAdapter(
     private val dataSet: List<String>,

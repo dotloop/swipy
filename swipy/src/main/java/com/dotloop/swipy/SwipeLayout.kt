@@ -1,4 +1,4 @@
-package com.dotloop.sweepy
+package com.dotloop.swipy
 
 import android.content.Context
 import android.graphics.Rect
@@ -14,11 +14,11 @@ import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
 import androidx.customview.widget.ViewDragHelper.create
-import com.dotloop.sweepy.SwipeLayout.DragEdge.LEFT_EDGE
-import com.dotloop.sweepy.SwipeLayout.DragEdge.RIGHT_EDGE
-import com.dotloop.sweepy.SwipeLayout.Status.CLOSE
-import com.dotloop.sweepy.SwipeLayout.Status.MIDDLE
-import com.dotloop.sweepy.SwipeLayout.Status.OPEN
+import com.dotloop.swipy.SwipeLayout.DragEdge.LEFT_EDGE
+import com.dotloop.swipy.SwipeLayout.DragEdge.RIGHT_EDGE
+import com.dotloop.swipy.SwipeLayout.Status.CLOSE
+import com.dotloop.swipy.SwipeLayout.Status.MIDDLE
+import com.dotloop.swipy.SwipeLayout.Status.OPEN
 
 /**
  * Credit to https://github.com/daimajia/AndroidSwipeLayout

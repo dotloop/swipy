@@ -1,4 +1,4 @@
-package com.dotloop.sweepy;
+package com.dotloop.swipy;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.dotloop.sweepy.test", appContext.getPackageName());
+        assertEquals("com.dotloop.swipy.test", appContext.getPackageName());
     }
 }

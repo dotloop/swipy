@@ -1,4 +1,4 @@
-package com.dotloop.sweepy
+package com.dotloop.swipy
 
 /**
  * Simple version of [android.view.View.OnLayoutChangeListener]

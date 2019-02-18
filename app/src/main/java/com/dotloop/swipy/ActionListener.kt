@@ -1,4 +1,4 @@
-package com.dotloop.sweepy.app
+package com.dotloop.swipy.app
 
 interface ActionListener {
     fun onDeleteClicked()

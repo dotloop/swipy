@@ -1,4 +1,4 @@
-package com.dotloop.sweepy
+package com.dotloop.swipy
 
 interface OnSwipeListener {
     fun onStartOpen(layout: SwipeLayout){}

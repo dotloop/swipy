@@ -4,10 +4,10 @@
 
 <img src="sweepy_gif.gif" alt="drawing" height="500"/>
 
-##Binaries
+## Binaries
 Coming soon
 
-##Sample
+## Sample
 
 After defining the layout for the swipable view and the actions, you need to use the `addDrag` function to define which way they are swipable. 
 
