@@ -1,8 +1,8 @@
-<img src="sweepy_logo.png" alt="drawing" height="50"/> 
+<img src="swipy_logo.png" alt="drawing" height="50"/> 
 
-**Sweepy is a simple and customizable solution to create  "swipable" views**
+**Swipy is a simple and customizable solution to create  "swipable" views**
 
-<img src="sweepy_gif.gif" alt="drawing" height="500"/>
+<img src="swipy_gif.gif" alt="drawing" height="500"/>
 
 ## Binaries
 Coming soon
@@ -17,7 +17,7 @@ swipeLayout.addDrag(RIGHT_EDGE, swipeLayout.findViewById(R.id.swipe_right_action
 ```
 
 ```
-<com.dotloop.sweepy.SwipeLayout
+<com.dotloop.swipy.SwipeLayout
     android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_cell_height"
@@ -59,7 +59,7 @@ swipeLayout.addDrag(RIGHT_EDGE, swipeLayout.findViewById(R.id.swipe_right_action
         tools:text="Swipe me"
         />
 
-</com.dotloop.sweepy.SwipeLayout>
+</com.dotloop.swipy.SwipeLayout>
 ```
 
 ## License
