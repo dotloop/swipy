@@ -52,7 +52,7 @@ swipeLayout.addDrag(RIGHT_EDGE, swipeLayout.findViewById(R.id.swipe_right_action
             />
     </LinearLayout>
     <TextView
-        android:id="@+id/swipable)view"
+        android:id="@+id/swipable_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
