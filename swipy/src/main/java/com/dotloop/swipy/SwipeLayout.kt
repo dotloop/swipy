@@ -139,7 +139,7 @@ class SwipeLayout @JvmOverloads constructor(
     private var isBeingDragged: Boolean = false
 
     var onSwipeListeners: OnSwipeListener? = null
-    var simpleOnLayoutChangeListenerListener: SimpleOnLayoutChangeListener? = null
+    var simpleOnLayoutChangeListener: SimpleOnLayoutChangeListener? = null
     private var clickListener: View.OnClickListener? = null
 
     private var viewBoundCache: HashMap<View, Rect> = HashMap()//save all children's bound, restore in onLayoutChange
@@ -357,7 +357,7 @@ class SwipeLayout @JvmOverloads constructor(
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         updateActionViews()
-        simpleOnLayoutChangeListenerListener?.onLayoutChange(this)
+        simpleOnLayoutChangeListener?.onLayoutChange(this)
     }
 
     @JvmOverloads
