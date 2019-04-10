@@ -5,7 +5,24 @@
 <img src="swipy_gif.gif" alt="drawing" height="500"/>
 
 ## Binaries
-Coming soon
+In the `build.gradle` file of the root of your project, add
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+In the `build.gradle` file of your app, add
+
+```
+dependencies {
+   implementation "com.github.dotloop:swipy:1.0.0"
+}
+
+```
 
 ## Sample
 
