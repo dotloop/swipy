@@ -5,7 +5,7 @@ import com.dotloop.swipy.SwipableCellHandler.Mode.Single
 class SwipableCellHandler() {
 
     private val openHistory: MutableMap<Int, SwipeLayout> = HashMap()
-    private var mode = Single
+    var mode = Single
 
     fun bindSwipableCell(swipeLayout: SwipeLayout, position: Int) {
         swipeLayout.tag = position
@@ -44,10 +44,6 @@ class SwipableCellHandler() {
 
     fun isOpen(position: Int): Boolean {
         return openHistory.containsKey(position)
-    }
-
-    fun setMode(mode: Mode) {
-        this.mode = mode
     }
 
     enum class Mode {
