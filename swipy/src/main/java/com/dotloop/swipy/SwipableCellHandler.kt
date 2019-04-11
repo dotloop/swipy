@@ -1,38 +1,35 @@
 package com.dotloop.swipy
 
 import com.dotloop.swipy.SwipableCellHandler.Mode.Single
-import java.util.*
 
-class SwipableCellHandler {
+class SwipableCellHandler() {
 
-    private val openPositions: MutableSet<Int> = HashSet()
-    private var mode = Single
-
+    private val openHistory: MutableMap<Int, SwipeLayout> = HashMap()
+    var mode = Single
 
     fun bindSwipableCell(swipeLayout: SwipeLayout, position: Int) {
         swipeLayout.tag = position
         swipeLayout.onSwipeListeners = (object : OnSwipeListener {
             override fun onClose(layout: SwipeLayout) {
-                openPositions.remove(layout.tag as Int)
+                openHistory.remove(layout.tag as Int)
             }
 
             override fun onStartOpen(layout: SwipeLayout) {
-                val position = layout.tag as Int
-                /**if (mode == Attributes.Mode.Single &&
-                 * !openPositions.isEmpty() &&
-                 * !openPositions.contains(position))
-                 * adapter.notifyItemChanged(position); */
+                val pos = layout.tag as Int
+                if (mode == Single && !openHistory.isEmpty() && !openHistory.containsKey(pos)) {
+                    openHistory.keys.forEach { openHistory[it]?.close(smooth = true, notify = true) }
+                }
             }
 
             override fun onOpen(layout: SwipeLayout) {
-                openPositions.add(layout.tag as Int)
+                openHistory[layout.tag as Int] = layout
             }
         })
 
-        swipeLayout.simpleOnLayoutChangeListenerListener = (object : SimpleOnLayoutChangeListener {
+        swipeLayout.simpleOnLayoutChangeListener = (object : SimpleOnLayoutChangeListener {
             override fun onLayoutChange(layout: SwipeLayout) =
-                if (isOpen(layout.tag as Int)) layout.open(false, false)
-                else layout.close(false, false)
+                if (isOpen(layout.tag as Int)) layout.open(smooth = false, notify = false)
+                else layout.close(smooth = false, notify = false)
         })
 
     }
@@ -40,17 +37,13 @@ class SwipableCellHandler {
     @JvmOverloads
     fun reset(position: Int? = null) {
         when (position) {
-            null -> openPositions.clear()
-            else -> openPositions.remove(position)
+            null -> openHistory.clear()
+            else -> openHistory.remove(position)
         }
     }
 
     fun isOpen(position: Int): Boolean {
-        return openPositions.contains(position)
-    }
-
-    fun setMode(mode: Mode) {
-        this.mode = mode
+        return openHistory.containsKey(position)
     }
 
     enum class Mode {
